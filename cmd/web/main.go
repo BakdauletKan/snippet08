@@ -12,14 +12,14 @@ import (
 
 type application struct {
 	errorLog *log.Logger
-	infoLog *log.Logger
+	infoLog  *log.Logger
 	snippets *postgresql.SnippetModel
 }
 
 func main() {
 
 	addr := flag.String("addr", ":4000", "HTTP network address")
-	dsn := flag.String("dsn", "postgres://postgres:bakdaulet2001@localhost:5432/snippetbox", "PostgreSQL data source name")
+	dsn := flag.String("dsn", "postgres://postgres:bakdaulet2001@host.docker.internal:5432/snippetbox", "PostgreSQL data source name")
 	flag.Parse()
 
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
